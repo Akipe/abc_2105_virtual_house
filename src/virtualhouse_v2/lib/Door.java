@@ -1,18 +1,20 @@
 package virtualhouse_v2.lib;
 
 public class Door {
+    private VirtualHouse virtualhouse;
     private Boolean isLock;
     private double openLevel;
 
-    public Door() {
-        this.isLock = false;
+    public Door(VirtualHouse _virtualHouse) {
+        this.virtualhouse = _virtualHouse;
+        this.isLock = true;
         this.openLevel = 0.0;
     }
 
     public Boolean openInPercent(double _openLevel) {
         // Check if user percent is not bigger than 100%, if the door is unlock and is
         // not bellow than current open percent.
-        if (_openLevel < 100.0 && !this.getIsLock() && _openLevel > this.getOpenLevel()) {
+        if (isCorrectPercent(_openLevel) && _openLevel > this.getOpenLevel() && !this.getIsLock() && _openLevel > this.getOpenLevel()) {
             this.openLevel = _openLevel;
             return true;
         } else {
@@ -42,9 +44,7 @@ public class Door {
         return this.closeInPercent(0.0);
     }
 
-    // public Boolean stopOpening() {
-
-    // }
+    // public Boolean stopOpening() {}
 
     public Double getOpenLevel() {
         return this.openLevel;
@@ -67,7 +67,7 @@ public class Door {
     }
 
     public Boolean lock() {
-        if (!this.isLock && this.isCompletelyClose()) {
+        if (this.isCompletelyClose()) {
             this.isLock = true;
             return true; // The command succeed.
         }
@@ -76,7 +76,7 @@ public class Door {
     }
 
     public Boolean unlock() {
-        if (this.isLock) {
+        if (this.isCompletelyClose()) {
             this.isLock = false;
             return true; // The command succeed.
         }
@@ -86,5 +86,16 @@ public class Door {
 
     public Boolean getIsLock() {
         return this.isLock;
+    }
+
+        /**
+     * Check is percent is between 0% and 100%
+     * 
+     * @param _numberToCheck
+     * @return
+     */
+    private Boolean isCorrectPercent(Double _numberToCheck)
+    {
+        return (_numberToCheck <= 100.0 && _numberToCheck >= 0.0);
     }
 }

@@ -9,11 +9,11 @@ public class RemoteControl {
         this.door = _door;
     }
 
-    public Boolean open() {
+    public Boolean openDoor() {
         return this.door.open();
     }
 
-    public Boolean close() {
+    public Boolean closeDoor() {
         return this.door.close();
     }
 
@@ -26,19 +26,27 @@ public class RemoteControl {
     }
 
     
-    public Double getDoorLevelOpenDoor() {
+    public Double getDoorOpenLevel() {
         return this.door.getOpenLevel();
+    }
+
+    public Boolean getCompletelyOpen() {
+        return this.door.isCompletelyOpen();
+    }
+
+    public Boolean getCompletelyClose() {
+        return this.door.isCompletelyClose();
     }
 
     // public Boolean stopOpeningDoor() {
 
     // }
 
-    public Boolean lock() {
+    public Boolean remoteLock() {
         return this.door.lock();
     }
 
-    public Boolean unlock() {
+    public Boolean remoteUnlock() {
         return this.door.unlock();
     }
 
