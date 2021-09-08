@@ -42,9 +42,9 @@ public class Door {
         return this.closeInPercent(0.0);
     }
 
-    public Boolean stopOpening() {
+    // public Boolean stopOpening() {
 
-    }
+    // }
 
     public Double getOpenLevel() {
         return this.openLevel;

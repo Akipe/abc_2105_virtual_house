@@ -1,9 +1,9 @@
 package virtualhouse_v2.lib.door;
 
-import virtualhouse_v1.lib.Door;
+import virtualhouse_v2.lib.Door;
 
 public class GarageDoor extends Door{
-    public GarageDoor () {
+    public GarageDoor() {
         
     }
 }

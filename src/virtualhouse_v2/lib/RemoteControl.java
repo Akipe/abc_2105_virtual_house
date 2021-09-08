@@ -4,7 +4,8 @@ public class RemoteControl {
     Door door;
     VirtualHouse virtualHouse;
 
-    public RemoteControl (Door _door){
+    public RemoteControl (Door _door, VirtualHouse _virtualHouse){
+        this.virtualHouse = _virtualHouse;
         this.door = _door;
     }
 
@@ -17,22 +18,21 @@ public class RemoteControl {
     }
 
     public Boolean openInPercentDoor(Double percent) {
-        return 
-        this.door.openInPercent(percent);
+        return this.door.openInPercent(percent);
     }
 
     public Boolean closeInPercentDoor(Double percent) {
-        return 
-        this.door.closeInPercent(percent);
+        return this.door.closeInPercent(percent);
     }
 
+    
     public Double getDoorLevelOpenDoor() {
         return this.door.getOpenLevel();
     }
 
-    public Boolean stopOpeningDoor() {
+    // public Boolean stopOpeningDoor() {
 
-    }
+    // }
 
     public Boolean lock() {
         return this.door.lock();
