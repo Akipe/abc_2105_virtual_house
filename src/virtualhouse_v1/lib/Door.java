@@ -1,31 +1,26 @@
 package virtualhouse_v1.lib;
 
 public class Door {
-    private Boolean     isLock;
-    private double      openLevel;
+    private Virtualhouse    virtualHouse;
+    private Boolean         isLock;
+    private double          openLevel; // 0.0 -> not open, 100.0 -> completely open
 
 
-    public Door()
+    public Door(Virtualhouse _virtualHouse)
     {
-        this.isLock = false;
-        this.openLevel = 0.0;
+        this.virtualHouse   = _virtualHouse;
+        this.isLock         = false;
+        this.openLevel      = 0.0;
     }
 
-    public Boolean openInPercent(double openLevel)
+    public Boolean openInPercent(double _openLevel)
     {
-        if (openLevel < 100.0) { // Check if user percent is not bigger than 100%
-            if (!this.getIsLock()) { // Check if the door is unlock
-                if (openLevel > this.getOpenLevel()) { // Check user percent is not bellow than current open percent
-                    this.openLevel = openLevel;
-                    return true;
-                } else {
-                    // The current door level is superior as user want,
-                    // So we warn user.
-                    return false;
-                }
-            } else {
-                return false; // The door is lock, so we warn user.
-            }
+        // Check if user percent is between 0% and 100%
+        // Check user percent is not bellow than current open percent
+        // Check if the door is unlock
+        if (isNumberIsCorrectPercent(_openLevel) && isAskOpenMoreThanCurrent(_openLevel) && !this.getIsLock()) {
+            this.openLevel = _openLevel;
+            return true;
         } else {
             return false; // The user percent is too big, so we warn user.
         }
@@ -36,17 +31,14 @@ public class Door {
         return this.openInPercent(100.0);
     }
 
-    public Boolean closeInPercent(double openLevel)
+    public Boolean closeInPercent(double _openLevel)
     {
-        if (openLevel > 0.0) { // Check if user percent is not less than 0%
-                if (openLevel < this.getOpenLevel()) { // Check user percent is not superior than current open percent
-                    this.openLevel = openLevel;
-                    return true;
-                } else {
-                    // The current door level is bellow than the user want,
-                    // So we warn user.
-                    return false;
-                }
+        // Check if user percent is between 0% and 100%
+        // Check user percent is not superior than current open percent
+        // Check if the door is unlock
+        if (isNumberIsCorrectPercent(_openLevel) && (isAskCloseMoreThanCurrent(_openLevel))) { // Check user percent is not superior than current open percent
+            this.openLevel = _openLevel;
+            return true;
         } else {
             return false; // The user percent is too small, so we warn user.
         }
@@ -107,5 +99,20 @@ public class Door {
     public Boolean getIsLock()
     {
         return this.isLock;
+    }
+
+    private Boolean isNumberIsCorrectPercent(Double _numberToCheck)
+    {
+        return (_numberToCheck <= 100.0 && _numberToCheck >= 0.0);
+    }
+
+    private Boolean isAskOpenMoreThanCurrent(Double _percentOpenToCheck)
+    {
+        return _percentOpenToCheck > this.getOpenLevel();
+    }
+
+    private Boolean isAskCloseMoreThanCurrent(Double _percentCloseToCheck)
+    {
+        return _percentCloseToCheck < this.getOpenLevel();
     }
 }
