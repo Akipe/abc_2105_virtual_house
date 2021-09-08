@@ -1,4 +1,4 @@
-package virtualhouse_v1.lib.door;
+package virtualhouse_v2.lib.door;
 
 import virtualhouse_v1.lib.Door;
 

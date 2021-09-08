@@ -1,4 +1,4 @@
-package virtualhouse_v1.lib;
+package virtualhouse_v2.lib;
 
 public class Door {
     private Boolean     isLock;
@@ -11,12 +11,12 @@ public class Door {
         this.openLevel = 0.0;
     }
 
-    public Boolean openInPercent(double openLevel)
+    public Boolean openInPercent(double _openLevel)
     {
-        if (openLevel < 100.0) { // Check if user percent is not bigger than 100%
+        if (_openLevel < 100.0) { // Check if user percent is not bigger than 100%
             if (!this.getIsLock()) { // Check if the door is unlock
-                if (openLevel > this.getOpenLevel()) { // Check user percent is not bellow than current open percent
-                    this.openLevel = openLevel;
+                if (_openLevel > this.getOpenLevel()) { // Check user percent is not bellow than current open percent
+                    this.openLevel = _openLevel;
                     return true;
                 } else {
                     // The current door level is superior as user want,
@@ -36,11 +36,11 @@ public class Door {
         return this.openInPercent(100.0);
     }
 
-    public Boolean closeInPercent(double openLevel)
+    public Boolean closeInPercent(double _openLevel)
     {
-        if (openLevel > 0.0) { // Check if user percent is not less than 0%
-                if (openLevel < this.getOpenLevel()) { // Check user percent is not superior than current open percent
-                    this.openLevel = openLevel;
+        if (_openLevel > 0.0) { // Check if user percent is not less than 0%
+                if (_openLevel < this.getOpenLevel()) { // Check user percent is not superior than current open percent
+                    this.openLevel = _openLevel;
                     return true;
                 } else {
                     // The current door level is bellow than the user want,
