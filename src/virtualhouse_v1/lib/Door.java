@@ -9,7 +9,7 @@ public class Door {
     public Door(VirtualHouse _virtualHouse)
     {
         this.virtualHouse   = _virtualHouse;
-        this.isLock         = false;
+        this.isLock         = true;
         this.openLevel      = 0.0;
     }
 
