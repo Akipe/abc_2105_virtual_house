@@ -1,5 +1,5 @@
 package virtualhouse_v1.lib;
 
-public class Virtualhouse {
+public class VirtualHouse {
     
 }

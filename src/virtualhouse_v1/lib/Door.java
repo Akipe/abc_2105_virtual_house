@@ -1,12 +1,12 @@
 package virtualhouse_v1.lib;
 
 public class Door {
-    private Virtualhouse    virtualHouse;
+    private VirtualHouse    virtualHouse;
     private Boolean         isLock;
     private double          openLevel; // 0.0 -> not open, 100.0 -> completely open
 
 
-    public Door(Virtualhouse _virtualHouse)
+    public Door(VirtualHouse _virtualHouse)
     {
         this.virtualHouse   = _virtualHouse;
         this.isLock         = false;
