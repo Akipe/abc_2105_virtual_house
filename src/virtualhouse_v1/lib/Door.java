@@ -18,7 +18,7 @@ public class Door {
         // Check if user percent is between 0% and 100%
         // Check user percent is not bellow than current open percent
         // Check if the door is unlock
-        if (isNumberIsCorrectPercent(_openLevel) && isAskOpenMoreThanCurrent(_openLevel) && !this.getIsLock()) {
+        if (isCorrectPercent(_openLevel) && _openLevel > this.getOpenLevel() && !this.getIsLock()) {
             this.openLevel = _openLevel;
             return true;
         } else {
@@ -36,7 +36,7 @@ public class Door {
         // Check if user percent is between 0% and 100%
         // Check user percent is not superior than current open percent
         // Check if the door is unlock
-        if (isNumberIsCorrectPercent(_openLevel) && (isAskCloseMoreThanCurrent(_openLevel))) { // Check user percent is not superior than current open percent
+        if (isCorrectPercent(_openLevel) && _openLevel < this.getOpenLevel()) {
             this.openLevel = _openLevel;
             return true;
         } else {
@@ -101,18 +101,14 @@ public class Door {
         return this.isLock;
     }
 
-    private Boolean isNumberIsCorrectPercent(Double _numberToCheck)
+    /**
+     * Check is percent is between 0% and 100%
+     * 
+     * @param _numberToCheck
+     * @return
+     */
+    private Boolean isCorrectPercent(Double _numberToCheck)
     {
         return (_numberToCheck <= 100.0 && _numberToCheck >= 0.0);
-    }
-
-    private Boolean isAskOpenMoreThanCurrent(Double _percentOpenToCheck)
-    {
-        return _percentOpenToCheck > this.getOpenLevel();
-    }
-
-    private Boolean isAskCloseMoreThanCurrent(Double _percentCloseToCheck)
-    {
-        return _percentCloseToCheck < this.getOpenLevel();
     }
 }
