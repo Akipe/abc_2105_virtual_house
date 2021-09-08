@@ -17,6 +17,11 @@ public class App {
 
 
         System.out.println("");
+        if (a_garage_door.getIsLock()) {
+            System.out.println("La porte de garage est verouillé");
+        } else {
+            System.out.println("La porte de garage est déverouillé");
+        }
         a_garage_door.lock();
         if (a_garage_door.getIsLock()) {
             System.out.println("La porte de garage est verouillé");
@@ -25,8 +30,15 @@ public class App {
         }
 
 
+        a_garage_door.unlock();
+        if (a_garage_door.getIsLock()) {
+            System.out.println("La porte de garage est verouillé");
+        } else {
+            System.out.println("La porte de garage est déverouillé");
+        }
         System.out.println("");
         a_garage_door.openInPercent(50.0);
+        System.out.println(a_garage_door.getOpenLevel());
         System.out.println("La porte de garage est au niveau de "+ a_garage_door.getOpenLevel());
         if (a_garage_door.isCompletelyOpen()) {
             System.out.println("La porte de garage est complétement ouverte");
