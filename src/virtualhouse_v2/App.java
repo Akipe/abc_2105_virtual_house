@@ -32,8 +32,12 @@ public class App {
 
 
         System.out.println("");
-        remote_door.remoteUnlock();
         System.out.println("On déverrouille la porte à distance...");
+        if (remote_door.remoteUnlock()) {
+            System.out.println("... Succés de la commande :)");
+        } else {
+            System.out.println("... Erreur de la commande :(");
+        }
 
         if (remote_door.getDoorIsLock()) {
             System.out.println("La porte de garage est verouillé");
@@ -43,8 +47,12 @@ public class App {
 
 
         System.out.println("");
-        remote_door.remoteLock();
         System.out.println("On verrouille la porte à distance...");
+        if (remote_door.remoteLock()) {
+            System.out.println("... Succés de la commande :)");
+        } else {
+            System.out.println("... Erreur de la commande :(");
+        }
         
         if (remote_door.getDoorIsLock()) {
             System.out.println("La porte de garage est verouillé");
@@ -54,8 +62,12 @@ public class App {
         
 
         System.out.println("");
-        remote_door.remoteUnlock();
         System.out.println("On déverrouille la porte à distance...");
+        if (remote_door.remoteUnlock()) {
+            System.out.println("... Succés de la commande :)");
+        } else {
+            System.out.println("... Erreur de la commande :(");
+        }
 
         if (remote_door.getDoorIsLock()) {
             System.out.println("La porte de garage est verouillé");
@@ -65,8 +77,12 @@ public class App {
 
 
         System.out.println("");
-        remote_door.openInPercentDoor(50.0);
         System.out.println("On ouvre la porte à 50%...");
+        if (remote_door.openInPercentDoor(50.0)) {
+            System.out.println("... Succés de la commande :)");
+        } else {
+            System.out.println("... Erreur de la commande :(");
+        }
         
         System.out.println("La porte de garage est au niveau de " + remote_door.getDoorOpenLevel());
         if (remote_door.getCompletelyOpen()) {
@@ -75,10 +91,14 @@ public class App {
             System.out.println("La porte de garage n'est pas complétement ouverte");
         }
 
-        
+
         System.out.println("");
-        remote_door.openInPercentDoor(30.0);
         System.out.println("On ouvre la porte à 30%...");
+        if (remote_door.openInPercentDoor(30.0)) {
+            System.out.println("... Succés de la commande :)");
+        } else {
+            System.out.println("... Erreur de la commande :(");
+        }
         
         System.out.println("La porte de garage est au niveau de " + remote_door.getDoorOpenLevel());
         if (remote_door.getCompletelyOpen()) {
@@ -89,8 +109,12 @@ public class App {
 
 
         System.out.println("");
-        remote_door.openDoor();
         System.out.println("On ouvre complétement la porte...");
+        if (remote_door.openDoor()) {
+            System.out.println("... Succés de la commande :)");
+        } else {
+            System.out.println("... Erreur de la commande :(");
+        }
 
         System.out.println("La porte de garage est au niveau de " + remote_door.getDoorOpenLevel());
         if (remote_door.getCompletelyOpen()) {
@@ -101,8 +125,12 @@ public class App {
 
 
         System.out.println("");
-        remote_door.remoteLock();
         System.out.println("On verrouille la porte à distance...");
+        if (remote_door.remoteLock()) {
+            System.out.println("... Succés de la commande :)");
+        } else {
+            System.out.println("... Erreur de la commande :(");
+        }
 
         if (remote_door.getDoorIsLock()) {
             System.out.println("La porte de garage est verouillé");
@@ -112,8 +140,12 @@ public class App {
 
 
         System.out.println("");
-        remote_door.closeInPercentDoor(80.0);
         System.out.println("On ferme la porte à 80%...");
+        if (remote_door.closeInPercentDoor(80.0)) {
+            System.out.println("... Succés de la commande :)");
+        } else {
+            System.out.println("... Erreur de la commande :(");
+        }
 
         System.out.println("La porte de garage est au niveau de " + remote_door.getDoorOpenLevel());
         if (remote_door.getCompletelyClose()) {
@@ -124,8 +156,12 @@ public class App {
 
 
         System.out.println("");
-        remote_door.closeInPercentDoor(50.0);
         System.out.println("On ferme la porte à 50%...");
+        if (remote_door.closeInPercentDoor(50.0)) {
+            System.out.println("... Succés de la commande :)");
+        } else {
+            System.out.println("... Erreur de la commande :(");
+        }
 
         System.out.println("La porte de garage est au niveau de " + remote_door.getDoorOpenLevel());
         if (remote_door.getCompletelyClose()) {
@@ -136,8 +172,12 @@ public class App {
 
 
         System.out.println("");
-        remote_door.closeInPercentDoor(90.0);
         System.out.println("On ferme la porte à 90%...");
+        if (remote_door.closeInPercentDoor(90.0)) {
+            System.out.println("... Succés de la commande :)");
+        } else {
+            System.out.println("... Erreur de la commande :(");
+        }
 
         System.out.println("La porte de garage est au niveau de " + remote_door.getDoorOpenLevel());
         if (remote_door.getCompletelyClose()) {
@@ -148,8 +188,12 @@ public class App {
 
 
         System.out.println("");
-        remote_door.closeDoor();
         System.out.println("On ferme complétement la porte...");
+        if (remote_door.closeDoor()) {
+            System.out.println("... Succés de la commande :)");
+        } else {
+            System.out.println("... Erreur de la commande :(");
+        }
 
         System.out.println("La porte de garage est au niveau de " + remote_door.getDoorOpenLevel());
         if (remote_door.getCompletelyClose()) {
@@ -165,8 +209,12 @@ public class App {
 
 
         System.out.println("");
-        remote_door.remoteLock();
         System.out.println("On verrouille la porte à distance...");
+        if (remote_door.remoteLock()) {
+            System.out.println("... Succés de la commande :)");
+        } else {
+            System.out.println("... Erreur de la commande :(");
+        }
 
         if (remote_door.getDoorIsLock()) {
             System.out.println("La porte de garage est verouillé");
