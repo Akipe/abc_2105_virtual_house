@@ -1,10 +1,10 @@
 package virtualhouse_v2.lib;
 
 public class RemoteControl {
-    Door door;
     VirtualHouse virtualHouse;
+    Door door;
 
-    public RemoteControl (Door _door, VirtualHouse _virtualHouse){
+    public RemoteControl (VirtualHouse _virtualHouse, Door _door){
         this.virtualHouse = _virtualHouse;
         this.door = _door;
     }

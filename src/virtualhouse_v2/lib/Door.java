@@ -1,16 +1,18 @@
 package virtualhouse_v2.lib;
 
 public class Door {
+    public static final double COMPLETELY_CLOSE_LEVEL = 0.0;
+    public static final double COMPLETELY_OPEN_LEVEL  = 100.0;
     private VirtualHouse    virtualHouse;
     private Boolean         isLock;
-    private double          openLevel; // 0.0 -> not open, 100.0 -> completely open
+    private double          openLevel; // Door.COMPLETELY_CLOSE_LEVEL -> not open, Door.COMPLETELY_OPEN_LEVEL -> completely open
 
 
     public Door(VirtualHouse _virtualHouse)
     {
         this.virtualHouse   = _virtualHouse;
         this.isLock         = true;
-        this.openLevel      = 0.0;
+        this.openLevel      = Door.COMPLETELY_CLOSE_LEVEL;
     }
 
     public Boolean openInPercent(double _openLevel)
@@ -28,7 +30,7 @@ public class Door {
 
     public Boolean open()
     {
-        return this.openInPercent(100.0);
+        return this.openInPercent(Door.COMPLETELY_OPEN_LEVEL);
     }
 
     public Boolean closeInPercent(double _openLevel)
@@ -46,7 +48,7 @@ public class Door {
 
     public Boolean close()
     {
-        return this.closeInPercent(0.0);
+        return this.closeInPercent(Door.COMPLETELY_CLOSE_LEVEL);
     }
 
     public Double getOpenLevel()
@@ -56,7 +58,7 @@ public class Door {
 
     public Boolean isCompletelyOpen()
     {
-        if (this.openLevel == 100.0) {
+        if (this.openLevel == Door.COMPLETELY_OPEN_LEVEL) {
             return true;
         }
         
@@ -65,7 +67,7 @@ public class Door {
 
     public Boolean isCompletelyClose()
     {
-        if (this.openLevel == 0.0) {
+        if (this.openLevel == Door.COMPLETELY_CLOSE_LEVEL) {
             return true;
         }
 
@@ -109,6 +111,10 @@ public class Door {
      */
     private Boolean isCorrectPercent(Double _numberToCheck)
     {
-        return (_numberToCheck <= 100.0 && _numberToCheck >= 0.0);
+        if (_numberToCheck < Door.COMPLETELY_CLOSE_LEVEL || _numberToCheck > Door.COMPLETELY_OPEN_LEVEL) {
+            throw new IllegalArgumentException("The number is not a correct percent (between " + Door.COMPLETELY_CLOSE_LEVEL + "% and " + Door.COMPLETELY_OPEN_LEVEL + "%)");
+        }
+
+        return true;
     }
 }

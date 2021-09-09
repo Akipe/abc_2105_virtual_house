@@ -6,17 +6,18 @@ import virtualhouse_v2.lib.door.GarageDoor;
 
 public class App {
     public static void main(String[] args) {
-        VirtualHouse a_virtual_house;
-        GarageDoor a_garage_door;
-        RemoteControl remote_door;
+        VirtualHouse    a_virtual_house;
+        GarageDoor      a_garage_door;
+        RemoteControl   remote_door;
 
         a_virtual_house = new VirtualHouse();
-        a_garage_door = new GarageDoor(a_virtual_house);
-        remote_door = new RemoteControl(a_garage_door, a_virtual_house);
+        a_garage_door   = new GarageDoor(a_virtual_house);
+        remote_door     = new RemoteControl(a_virtual_house, a_garage_door);
 
 
         System.out.println("");
         System.out.println("On vient de créer notre porte...");
+        System.out.println("On vient de créer notre télécommande...");
 
         System.out.println("La porte de garage est au niveau de " + remote_door.getDoorOpenLevel());
         if (remote_door.getCompletelyClose()) {
@@ -77,7 +78,7 @@ public class App {
 
 
         System.out.println("");
-        System.out.println("On ouvre la porte à 50%...");
+        System.out.println("On ouvre la porte à 50% à distance...");
         if (remote_door.openInPercentDoor(50.0)) {
             System.out.println("... Succés de la commande :)");
         } else {
@@ -93,7 +94,7 @@ public class App {
 
 
         System.out.println("");
-        System.out.println("On ouvre la porte à 30%...");
+        System.out.println("On ouvre la porte à 30% à distance...");
         if (remote_door.openInPercentDoor(30.0)) {
             System.out.println("... Succés de la commande :)");
         } else {
@@ -109,7 +110,7 @@ public class App {
 
 
         System.out.println("");
-        System.out.println("On ouvre complétement la porte...");
+        System.out.println("On ouvre complétement la porte à distance...");
         if (remote_door.openDoor()) {
             System.out.println("... Succés de la commande :)");
         } else {
@@ -156,7 +157,7 @@ public class App {
 
 
         System.out.println("");
-        System.out.println("On ferme la porte à 50%...");
+        System.out.println("On ferme la porte à 50% à distance...");
         if (remote_door.closeInPercentDoor(50.0)) {
             System.out.println("... Succés de la commande :)");
         } else {
@@ -172,7 +173,7 @@ public class App {
 
 
         System.out.println("");
-        System.out.println("On ferme la porte à 90%...");
+        System.out.println("On ferme la porte à 90% à distance...");
         if (remote_door.closeInPercentDoor(90.0)) {
             System.out.println("... Succés de la commande :)");
         } else {
@@ -188,7 +189,7 @@ public class App {
 
 
         System.out.println("");
-        System.out.println("On ferme complétement la porte...");
+        System.out.println("On ferme complétement la porte à distance...");
         if (remote_door.closeDoor()) {
             System.out.println("... Succés de la commande :)");
         } else {
